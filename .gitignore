@@ -1,6 +1,2 @@
 node_modules
-public
-router
-app.js
-views
-
+package-lock.json
