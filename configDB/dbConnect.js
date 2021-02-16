@@ -5,9 +5,13 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("ket noi thanh cong");
 });
+//tao ket noi voi mongodb:
+module.exports = mongoose
+
+
 
 //tao bang du lieu:
-let Schema = mongoose.Schema;
+// let Schema = mongoose.Schema;
 //BAI1:
 //dinh nghia cac cot
 // let postSchema = new Schema({
@@ -69,17 +73,17 @@ let Schema = mongoose.Schema;
 
 //BAI2:
 
-let userSchema = new Schema({
-   username : String,
-    password : String,
-    email : String,
-    age : Number,
-    school : String
+// let userSchema = new Schema({
+//    username : String,
+//     password : String,
+//     email : String,
+//     age : Number,
+//     school : String
     
-})
+// })
 //ddijnh nghiax teen bang
 //let UserModel = mongoose.model("post",userSchema);
-let UserModel = mongoose.model("user",userSchema);
+//let UserModel = mongoose.model("user",userSchema);
 // tao 5 ban ghi moi
 // UserModel.create({
 //     username : "nam",
@@ -125,9 +129,9 @@ let UserModel = mongoose.model("user",userSchema);
 
 
 //  UserModel.find({
-//            username : "huy1",
+//            username : "huy",
 //             password : "huy2"
-//         })
+//         }).then
         
        
 
