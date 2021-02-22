@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="">
+        <p>Username <input type="text" name="username" id="username"></p>
+        <p>Email <input type="text" name="email" id="email"></p>
+        <p>Password <input type="password" name="password" id="password"></p>
+        <p>Age <input type="text" name="age" id="age"></p>
+        <button id="btn" type="button">Dang Ki</button>
+    </form>
+    
+</body>
+<script>
+       $("#btn").click(function(){
+           var email = $("#email").val();
+           var username = $("#username").val();
+           var password = $("#password").val();
+           var age = $("#age").val();
+        $.ajax({
+            //ddia chi api
+            url : "/user",
+            //method di theo api viet hoa
+            method : "POST",
+            //du lieu truyen len cho nguoi dung duoidang body
+            //method get se k can gui bien data nay len
+            //vi get k gui du lieu ng dung len dc duoi dang body
+            //dung cho cac method: post,put,delete
+            data : {
+                username : username,
+                email : email,
+                password : password,
+                age:age,
+            }
+        }).then(function(response){
+            console.log(response);
+            if(!response.error){
+                alert (response.message);
+            }
+        })
+        .catch(function (err) {
+            console.log(err.error);
+            
+        })
+
+
+
+
+       })
+</script>
+</html>

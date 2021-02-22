@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p><input id="inp"></p>
+    <button id= "btn" type="button" style="height: 50px; width: 50px; border: 1px solid black;">click</button>
+</body>
+<script>
+         $("#btn").click(function(){
+           var btn = $("#btn");
+           var inp = $("#inp").val();
+           alert(inp);
+        //   console.log(typeof inp);
+        //   if(typeof inp === Number){
+        //       alert("day la 1 so")
+        //   }else{
+        //       alert("day la 1 ki tu")
+        //   }
+          $.ajax({
+            
+            url : "/user",
+        
+            method : "POST",
+            
+            data : {
+               inp : inp
+            }
+        }).then(function(response){
+            console.log(response);
+            if(response.isNumber){
+                alert (response.message);
+            }
+        })
+        .catch(function (err) {
+            console.log(err.isNumber);
+            
+        })
+
+
+
+          
+        
+        
+       })
+</script>
+</html>
